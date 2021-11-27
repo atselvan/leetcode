@@ -2,7 +2,6 @@ package isPalindrome
 
 import (
 	"strconv"
-	"strings"
 )
 
 func isPalindrome(x int) bool {
@@ -14,22 +13,19 @@ func isPalindrome(x int) bool {
 	for number != 0 {
 		reverse = reverse * 10
 		reverse = reverse + number%10
-		number = number / 10
+		number /= 10
 	}
 	return x == reverse
 }
 
 func isPalindromeBrute(x int) bool {
-	count := 0
-	nums := strings.Split(strconv.Itoa(x), "")
-
-	for i, num := range nums {
-		if num == nums[len(nums)-(i+1)] {
-			count++
+	nums := strconv.Itoa(x)
+	for i, _ := range nums {
+		if i < len(nums)/2 {
+			if nums[i] != nums[len(nums)-(i+1)] {
+				return false
+			}
 		}
 	}
-	if count == len(nums) {
-		return true
-	}
-	return false
+	return true
 }

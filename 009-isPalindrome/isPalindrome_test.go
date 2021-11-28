@@ -48,7 +48,7 @@ func Test_isPalindrome(t *testing.T) {
 	for i, testCase := range testCases {
 		t.Run(fmt.Sprintf("scenario:%d", i), func(t *testing.T) {
 			output := isPalindrome(testCase.Num)
-			assert.Equal(t, output, testCase.Output)
+			assert.Equal(t, testCase.Output, output)
 		})
 	}
 }
@@ -57,7 +57,7 @@ func Test_isPalindromeBrute(t *testing.T) {
 	for i, testCase := range testCases {
 		t.Run(fmt.Sprintf("scenario:%d", i), func(t *testing.T) {
 			output := isPalindromeBrute(testCase.Num)
-			assert.Equal(t, output, testCase.Output)
+			assert.Equal(t, testCase.Output, output)
 		})
 	}
 }

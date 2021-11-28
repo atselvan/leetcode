@@ -49,6 +49,15 @@ func Test_romanToInt(t *testing.T){
 	}
 }
 
+func Test_romanToByte(t *testing.T){
+	for i, testCase := range testCases {
+		t.Run(fmt.Sprintf("scenario:%d", i), func(t *testing.T) {
+			output := romanToIntByte(testCase.Roman)
+			assert.Equal(t, testCase.Output, output)
+		})
+	}
+}
+
 func Test_romanToIntBrute(t *testing.T){
 	for i, testCase := range testCases {
 		t.Run(fmt.Sprintf("scenario:%d", i), func(t *testing.T) {

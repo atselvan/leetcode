@@ -42,6 +42,33 @@ func romanToInt(s string) int {
 	return result
 }
 
+func romanToIntByte(s string) int {
+	dict := map[byte]int{
+		'I': 1,
+		'V': 5,
+		'X': 10,
+		'L': 50,
+		'C': 100,
+		'D': 500,
+		'M': 1000,
+	}
+	result := 0
+	for i := 0; i < len(s)-1; i++ {
+		if _ , ok := dict[s[i]]; !ok {
+			return 0
+		}
+		if i != len(s) - 1 {
+			if dict[s[i]] < dict[s[i+1]] {
+				result -= dict[s[i]]
+			} else {
+				result += dict[s[i]]
+			}
+		}
+	}
+	result += dict[s[len(s)-1]]
+	return result
+}
+
 func romanToIntBrute(s string) int {
 	result := 0
 	romanNumerals := strings.Split(s, "")

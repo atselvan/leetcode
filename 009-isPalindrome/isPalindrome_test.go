@@ -12,7 +12,7 @@ type TestCase struct {
 }
 
 var (
-	scenarios = []TestCase{
+	testCases = []TestCase{
 		{
 			Num:    121,
 			Output: true,
@@ -45,19 +45,19 @@ var (
 )
 
 func Test_isPalindrome(t *testing.T) {
-	for i, scenario := range scenarios {
+	for i, testCase := range testCases {
 		t.Run(fmt.Sprintf("scenario:%d", i), func(t *testing.T) {
-			output := isPalindrome(scenario.Num)
-			assert.Equal(t, output, scenario.Output)
+			output := isPalindrome(testCase.Num)
+			assert.Equal(t, output, testCase.Output)
 		})
 	}
 }
 
 func Test_isPalindromeBrute(t *testing.T) {
-	for i, scenario := range scenarios {
+	for i, testCase := range testCases {
 		t.Run(fmt.Sprintf("scenario:%d", i), func(t *testing.T) {
-			output := isPalindromeBrute(scenario.Num)
-			assert.Equal(t, output, scenario.Output)
+			output := isPalindromeBrute(testCase.Num)
+			assert.Equal(t, output, testCase.Output)
 		})
 	}
 }

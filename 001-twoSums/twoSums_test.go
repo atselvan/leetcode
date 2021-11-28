@@ -13,7 +13,7 @@ type TestCase struct {
 }
 
 var (
-	scenarios = []TestCase{
+	testCases = []TestCase{
 		{
 			Num:    []int{2, 7, 11, 15},
 			Target: 9,
@@ -38,19 +38,19 @@ var (
 )
 
 func Test_twoSum(t *testing.T) {
-	for i, scenario := range scenarios {
+	for i, testCase := range testCases {
 		t.Run(fmt.Sprintf("scenario:%d", i + 1), func(t *testing.T) {
-			result := twoSum(scenario.Num, scenario.Target)
-			assert.Equal(t, scenario.output, result)
+			result := twoSum(testCase.Num, testCase.Target)
+			assert.Equal(t, testCase.output, result)
 		})
 	}
 }
 
 func Test_twoSumBrute(t *testing.T) {
-	for i, scenario := range scenarios {
+	for i, testCase := range testCases {
 		t.Run(fmt.Sprintf("scenario:%d", i + 1), func(t *testing.T) {
-			result := twoSumBrute(scenario.Num, scenario.Target)
-			assert.Equal(t, scenario.output, result)
+			result := twoSumBrute(testCase.Num, testCase.Target)
+			assert.Equal(t, testCase.output, result)
 		})
 	}
 }

@@ -6,21 +6,14 @@ import (
 
 func longestCommonPrefix(strs []string) string {
 	result := ""
-	for i := 1; i <= len(strs[0]); i++ {
-		counter := 0
+	for i := 0; ; i++ {
 		for _, str := range strs {
-			if len(str) == 0 {
+			if i == len(str) || strs[0][i] != str[i] {
 				return result
 			}
-			if i <= len(str) && strs[0][0:i] == str[0:i] {
-				counter++
-			}
 		}
-		if counter == len(strs) {
-			result = strs[0][0:i]
-		}
+		result += string(strs[0][i])
 	}
-	return result
 }
 
 func longestCommonPrefixBrute(strs []string) string {
